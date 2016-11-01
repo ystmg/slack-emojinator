@@ -7,6 +7,7 @@ import os
 import re
 import sys
 import requests
+import urllib
 
 from bs4 import BeautifulSoup
 
@@ -24,20 +25,27 @@ headers = {
 
 
 def main():
+    download_image(sys.argv[2],sys.argv[1])
     existing_emojis = get_current_emoji_list()
     uploaded = 0
     skipped = 0
     for filename in sys.argv[1:]:
+        filename = "{0}".format(filename)
         print("Processing {}.".format(filename))
         emoji_name = os.path.splitext(os.path.basename(filename))[0]
         if emoji_name in existing_emojis:
             print("Skipping {}. Emoji already exists".format(emoji_name))
             skipped += 1
+            break
         else:
             upload_emoji(emoji_name, filename)
             print("{} upload complete.".format(filename))
             uploaded += 1
+            break
     print('\nUploaded {} emojis. ({} already existed)'.format(uploaded, skipped))
+
+def download_image(url,filename):
+    urllib.urlretrieve(url,"{0}".format(filename))
 
 
 def get_current_emoji_list():
