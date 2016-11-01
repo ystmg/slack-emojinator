@@ -26,6 +26,7 @@ headers = {
 
 def main():
     download_image(sys.argv[2],sys.argv[1])
+    resize_image(sys.argv[1])
     existing_emojis = get_current_emoji_list()
     uploaded = 0
     skipped = 0
@@ -47,6 +48,11 @@ def main():
 def download_image(url,filename):
     urllib.urlretrieve(url,"{0}".format(filename))
 
+def resize_image(filename):
+    filepath = "{0}".format(filename)
+    cmd = "convert %s -resize 128x128 %s"%(filepath, filepath)
+    print cmd
+    os.system(cmd)
 
 def get_current_emoji_list():
     r = requests.get(url, headers=headers)
