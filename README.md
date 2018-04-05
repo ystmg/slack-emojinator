@@ -1,6 +1,6 @@
 # Slack Emojinator
 
-## Now You can download image from internet And they are auto resized into 128px!
+## Now You can download image from internet And it's trimed and resized into 128px!
 
 Use by command `python upload.py emoji_name http://example.com/image.jpeg`
 

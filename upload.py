@@ -50,7 +50,7 @@ def download_image(url,filename):
 
 def resize_image(filename):
     filepath = "{0}".format(filename)
-    cmd = "convert %s -resize 128x128 %s"%(filepath, filepath)
+    cmd = "convert %s -trim -resize 128x128 %s"%(filepath, filepath)
     print cmd
     os.system(cmd)
 
