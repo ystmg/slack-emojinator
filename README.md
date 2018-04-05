@@ -1,12 +1,12 @@
 # Slack Emojinator
 
-## Now You can download image from internet And it's trimed and resized into 128px!
+## Now You can download image from the internet And it gets trimmed and resized into 128px automatically!
 
-Use by command `python upload.py emoji_name http://example.com/image.jpeg`
+Use it with command `python upload.py emoji_name http://example.com/image.jpeg`
 
-You need `convert` command by `imagemagick`.
+You need `convert` command of `imagemagick`.
 
-*Bulk upload emoji into Slack*
+## Bulk upload emoji into Slack
 
 Want to create a custom Slack emoji for every pokemon? Slack doesn't currently expose an API endpoint for creating emoji, probably to prevent users from doing exactly what I'm doing, but here's a way to do it anyway.
 
